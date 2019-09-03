@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-apn" version="1.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-apn</name>
+    <js-module name="SkyApn" src="www/plugin-apn.js">
+        <clobbers target="SkyApn" />
+    </js-module>
+       <!--添加我们自己的平台  -->
+    <!--添加我们自己的平台  -->
+    <platform name="android">  <!-- 平台类型 -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SkyApn">  <!-- JS调用时的前缀名字 -->
+                <param name="android-package" value="com.skyteach.apn.SkyApn"/> <!-- .java类名全路径 -->
+            </feature>
+        </config-file>
+        <source-file src="src/android/SkyApn.java" target-dir="src/com/skyteach/apn" />
+        <!-- src:java源文件的路径， target-dir:插件安装好后，源文件的位置，要和上面的包名对应 -->
+    </platform>
+</plugin>
