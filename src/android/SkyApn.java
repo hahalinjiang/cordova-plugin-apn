@@ -33,17 +33,27 @@ public class SkyApn extends CordovaPlugin {
         context=cordova.getActivity();
         //showToast 是你在JS中调用的方法名；
         if (action.equals("toSettingApn")){
-            int version = android.os.Build.VERSION.SDK_INT;
-            if (version > 28) {
-                Intent intent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
-                cordova.getActivity().startActivity(intent);
-            }else{
+//            int version = android.os.Build.VERSION.SDK_INT;
+//            if (version > 28) {
+//                Intent intent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+//                cordova.getActivity().startActivity(intent);
+//            }else{
                 Intent intent = new Intent(Settings.ACTION_APN_SETTINGS);
                 cordova.getActivity().startActivity(intent);
-            }
+
             return true;
         }
-
+        if (action.equals("toSettingNewApn")){
+//            int version = android.os.Build.VERSION.SDK_INT;
+//            if (version > 28) {
+                Intent intent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+                cordova.getActivity().startActivity(intent);
+//            }else{
+//                Intent intent = new Intent(Settings.ACTION_APN_SETTINGS);
+//                cordova.getActivity().startActivity(intent);
+//            }
+            return true;
+        }
         return false;
     }
 }
